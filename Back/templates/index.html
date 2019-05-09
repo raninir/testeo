@@ -1,0 +1,33 @@
+
+{% extends "maqueta.html" %}
+{% load staticfiles %}
+{% block MisPerris %}
+
+<!-- main donde se escribe lo principal-->
+<section class="main">
+
+    <!--primer articulo del main-->
+    <article class="titulo1">
+        <h2 >RESCATE</h2>
+        <h1>ETAPA 1</h1>
+        <hr> 
+        <p>Rescatamos perros en situacion de peligro y/o abandono. Los rehabilitamos y 
+            los preparamos para buscarles un hogar.</p>
+        <br>
+        <img src="{% static 'img/perrocalle.jpg'%}" width="150" alt="" >
+    </article>
+
+    <!--segundo articulo del main-->
+    <article class="titulo2">
+            <img src="{% static 'img/comida.jpg'%}" width="150" alt="">
+            <h2 >CROWDFUNDIG</h2>
+            <h1>FINANCIAMIENTO</h1>
+            <hr>
+            <p>sigue nuestras redes sociales para la informarte acerca de las diversas campañas y actividades que realizaremos para obtener financiamiento para seguir ayudando.</p>
+            <br>
+            <div id= "campañas">
+                <h1>campañas</h1>
+            </div>
+    </article>
+</section>
+{% endblock %}

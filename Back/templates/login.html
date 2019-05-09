@@ -1,0 +1,28 @@
+{% extends "maqueta.html" %}
+{% load staticfiles%}
+{% block Login%}
+<h2> Iniciar sesion </h2>
+<form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Ingresar al Sistema"> 
+    <button>
+        <a href="{% url 'registrarse'%}" >Registrarse</a>
+      </button>
+</form>
+
+<div>
+  
+  <a href="{% url 'social:begin' 'github' %}"><img src="{% static 'img\Github.png'%}" width="50" alt=""></a>
+  <a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'img\face.png' %}"  width="60" alt=""></a>
+  <a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'img\google.png'%}" width="50" alt=""></a>
+  <a href="{% url 'social:begin' 'linkedin-oauth2' %}"> <img src="{% static 'img\linkedin.png'%}" width="60" alt=""></a> 
+</div>  
+
+  
+
+
+  <button>
+    <a href="{% url 'password_reset'%}"> Olvide mi contrasena  </a>
+  </button>
+{% endblock %}

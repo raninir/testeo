@@ -1,0 +1,374 @@
+* {
+	margin: 0;
+	padding: 0;
+	/*se define como se calcularán los cuadrados en base al ancho y al alto con respecto al padding
+	content-box indica que todo será sin considerar padding o bordes
+	border-box indica que se incluyen en los calculos bordes y padding
+	initial se fija el valor por defecto, depende del dispositivo y el navegador
+	inherit utiliza el valor del contenedor del elemento
+	*/
+	box-sizing: border-box;
+	
+}
+
+.contenedor {
+	background:#83EEBF;
+	width:90%;
+	max-width:1000px;
+	margin:auto;
+
+	/* Flexbox */
+	/*display es la propiedad que indica como se verán los elementos
+	En css tradicional se usan tipicamente block, inline none, table, pero existen varias opciones
+	flex indica que el elemento tendrá características responsivas
+	*/
+	display:flex;
+	/*Flex-flow indica como se desplegarán los elementos dentro de un contenedor flex
+	hay dos configuraciones básicas flex-direction y flex-wrap
+	row, row-reverse, column, column-reverse flex directiion
+	nowrap,wrap,wrap-reverse
+	*/
+	flex-flow:row wrap;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+	background:#e9e9e9;
+}
+
+header {
+	background:#83EEBF  ;
+	width:100%;
+	padding:20px;
+
+	/* Flexbox */
+	display: flex;
+	/*flex-start desde un comienzo hasta el final
+	flex-end desde el final al comienzo
+	center 
+	space-between los items son puestos con espacios posteriores
+	space-around items son puestos con espacios antes
+	*/
+	justify-content:space-between;
+	align-items:center;
+
+	flex-direction:row;/**otra forma de mostrar lo mismo*/
+	flex-wrap:wrap;
+
+
+}
+
+
+header .logo {
+	color:#fff;
+	font-size:30px;
+	text-align: center;
+}
+
+header .logo img {
+	width:300px;
+	vertical-align: top;
+}
+
+header .logo a {
+	color:#fff;
+	text-decoration: none;
+	line-height:50px;
+}
+
+header nav {
+	width:50%;
+	/* Flexbox */
+
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	flex-direction: column; /* column para vertical y row para horizontal*/
+}
+
+header nav a {
+	background:#21cab4;
+	color:#fff;
+	text-align: center;
+	text-decoration: none;
+	padding:10px;
+	width: 100%;
+	flex-direction: column;
+
+	/* Flexbox */
+	flex-grow:1; /*Especifica el numero maximo de items flex que pueden adecuarse en una zona*/
+	
+}
+
+
+header nav a:hover {
+	background:#3c9494;
+}
+
+/* SLIDER */
+
+
+#carrusel {
+	background:#21cab4;
+	width: 100%;
+}
+
+/* REDES SOCIALES  */
+
+ .links {
+	background:#83EEBF;
+	width: 100%;
+	padding:1px;
+
+	/* Flexbox */
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	flex-direction: ROW;
+}
+
+ .links {
+	background:#21cab4;
+	display:flex;
+	flex-wrap:wrap;
+}
+
+ .links a {
+	flex-grow:1;
+
+	color:#fff;
+	padding:10px;
+	text-align: center;
+	text-decoration:none;
+}
+
+.links a:hover {
+	background:#3c9494;
+}
+
+
+/* PRINCIPAL */ 
+
+
+.main {
+	background:#FFF;
+	padding:20px;
+
+	flex:1 1 70%;/*Establece que sera un 70% del ancho del contenedor
+	1 es el numero máximo de items flex 
+	1 estabñece que será automático el ajuste, es decir no cambiará su escala en base a los dimensionamientos
+	
+	*/
+}
+
+.main article {
+	margin-bottom: 20px;
+	padding-bottom:20px;
+	
+}
+
+
+.titulo1 {
+	text-align: right;
+}
+
+.titulo2 {
+	text-align:left;
+}
+
+.titulo1 hr {
+	width: 20%;
+	height: 3px;
+	background: #000000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 80%;
+	width: 4;
+}
+
+
+
+
+.titulo2 hr {
+	width: 20%;
+	height: 3px;
+	background: #000000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 1%;
+	width: 4;
+}
+
+.titulo2 #campañas {
+	display: block;
+	margin-top: 20px;
+	border-style:solid;
+	width:130px;
+	text-align: center;
+
+}
+
+
+
+/* COLLAGE  */
+
+
+.collage{
+	width: 90%;
+	max-width: 1000px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	display:flex;
+	justify-content:space-between;
+}
+
+.collage .caja{
+    width: 32%;
+    overflow: hidden;
+    box-shadow:10px 10px 5px 0px rgba(0,0,0,0.75);
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+.collage .caja img{
+    width: 100%;
+    height: 32%;
+    object-fit:cover;
+}
+
+ .collage img:hover{
+    transform:scale(1.5);
+    transition:all ease 1.5s;
+    cursor:pointer;
+}
+
+.collage largo img{
+	 height: 48%;
+}
+
+.collage maslargo{
+	height:65%;
+	
+}
+
+/* FORMULARIO */
+
+span {
+	
+}
+
+
+#Región {
+
+	width: 195px;
+	flex: 1;
+	margin:auto;
+}
+
+
+.pagination {
+    text-align: center;
+    margin-top: 1em;
+}
+
+
+
+
+
+.btn-enviar {
+	margin-top: 10px;
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+	background-color:#ffffff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+	outline: 0px;
+}
+
+.error {
+	font-size: 15px;
+	font-family: Arial;
+	color: #FF0052;
+
+
+}
+
+
+/*  @media screen and (max-width: 800px) {
+	 .column {
+	  flex: 50%;
+	  max-width: 50%;
+	}
+  }
+  
+ 
+  @media screen and (max-width: 600px) {
+	 .column {
+	  flex: 100%;
+	  max-width: 100%;
+	}
+  }
+*/
+
+
+
+@media screen and (max-width: 800px) {
+	/*https://www.w3schools.com/cssref/css3_pr_mediaquery.asp*/
+	.contenedor {
+		flex-direction:column;
+	}
+
+	header {
+		flex-direction:column;
+		padding:0;
+	}
+
+	header .logo {
+		margin:20px 0;
+	}
+
+	header nav {
+		width: 100%;
+	}
+
+	aside {
+		flex-direction:row;
+		flex:0;
+	}
+
+	aside .widget {
+		flex-grow:1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	aside {
+		flex-direction:column;
+	}
+
+	footer {
+		justify-content:space-around;
+	}
+}

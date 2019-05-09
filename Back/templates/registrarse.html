@@ -1,0 +1,16 @@
+{% extends "maqueta.html" %}
+{% load staticfiles %}
+{% block MisPerris%}
+<form class="registro" method="POST">
+    <div class="registroContenedor">
+        <div class="RegistroAdoptante">
+        {% csrf_token %}
+        {{form.as_ul}}
+        <button type="submit" class="btnConfirmar">Confirmar</button>
+        </div>
+    </div>
+    </form>
+{% endblock %}
+
+
+

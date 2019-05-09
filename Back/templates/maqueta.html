@@ -1,0 +1,124 @@
+{% load staticfiles %}<!-- CARGA LOS DATOS DE LA CARPETA STATIC TANTO FOTOS COMO OTROS ARCHIVOS COMO EL CSS Y EL JS -->
+
+<!doctype html>
+<html lang="es">
+        {% load pwa %}
+<head>
+        {%progressive_web_app_meta %}
+    <meta charset="utf-8">
+    <title> </title>
+    <meta name="description" content="Pagina completa con Flexbox"><!--Utilizamos el descriptor en meta para apoyar la busqueda de contenidos en la web-->
+    <meta name="viewport" content="width=device-widtg, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0"><!--las escalas indican un punto inicial, la escala maxima y minima-->
+    <script src="prefix.js" type="test/javascript"></script><!--Script para asegurarq eu en todos los navegadores y dispositivos el sitio se vea igual-->
+	<link rel="stylesheet" href="{% static 'css/jquery.bxslider.css'%}"><!--conectar jq para definir el slider-->
+	<link rel="stylesheet" href="{% static 'css/estilos.css'%}"><!--conectar el codigo css para el diseño de la pagina-->
+    <script src="{% static 'js/jquery.js'%}"></script><!--conectar jq para definir el codigo jq -->
+    <script src="{% static 'js/jquery.bxslider.min.js'%}"></script><!--conectar jq del slider-->
+</head>
+</head>
+    <body>
+        <div class="contenedor">
+
+		<!-- primera parte de la pagina la cabeza -->	
+		<header>
+			<div class="logo">
+                <img src="{% static 'img/logo.png'%}" width="" alt=""><!--inserta imagen del logo superior-->
+			</div>
+            
+            <div>
+                {% if actual %}
+                    <div class="logo">Bienvenido {{actual.username}}</div>
+                    <button class= "salir"><a href="{% url 'logout' %}">Salir</a></button>
+                {%endif%}
+            </div>
+
+            <!-- AGREGAR LINKS A LA PAGINA A TRAVEZ DE LOS URLS -->
+
+            <nav>
+                <a href="{% url 'inicio'%}">Home</a>
+                <a href="#">Quienes somos</a>
+                <a href="#">Servicios</a>
+                <a href="#}">Contactanos</a>
+                {% if request.user.is_staff %}
+                <a href="{% url 'gestionarUsuarios'%}">Gestionar Usuarios </a>
+                <a href="{% url 'gestionarMascotas'%}">Gestionar Mascotas </a>
+                {% endif %}
+                <a href="{% url 'registrarse'%}">Registrarse</a>
+				<a href="{% url 'lista'%}">Lista Mascotas </a>
+                <a href="{% url 'login' %}">Ingresar</a>
+                <a href="{% url 'logout' %}">Salir </a>
+
+            </nav>
+
+            <!-- slider (carrusel) width = 100% hace que la fotografia no se corte-->
+			<div id="carrusel">
+				<div><img src="{% static 'img/01.jpg'%}" width="100%"></div>
+				<div><img src="{% static 'img/02.jpg'%}" width="100%"></div>
+				<div><img src="{% static 'img/03.jpg'%}" width="100%"></div>
+				<div><img src="{% static 'img/04.jpg'%}" width="100%"></div>
+			</div>
+            <script src="{% static 'js/codigo.js'%}"></script>
+            
+
+            <!-- redes sociales -->
+			<div class="links">
+				
+					<a href="https://es-la.facebook.com/" target="_blank"><img src="{% static 'img\face.png' %}"  width="60" alt=""></a>
+					<a href="https://www.google.com/intl/es/gmail/about/" target="_blank"><img src="{% static 'img\Gmail.png'%}"  width="55" alt=""> </a>
+					<a href="https://www.instagram.com/?hl=es-la" target="_blank" ><img src="{% static 'img\ig.png'%}" width="50" alt=""> </a>
+					<a href="https://plus.google.com/discover?hl=es" target="_blank" ><img src="{% static 'img\google.png'%}" width="50" alt=""> </a>
+			
+
+			</div>
+
+        </header>
+
+        <!-- LLAMAR A LOS BLOCKES PARA MOSTRARLOS EN EL CONTENIDO DE LA PAGINA -->
+
+        {% block MisPerris %}
+
+        {% endblock %}
+        <section>
+            <div class="contenido" background="#83EEBF">
+                {% block Login%}
+                {% endblock %}
+                {% block Lista%}
+                {% endblock %}
+                {% block Formulario%}
+                {% endblock %}
+				
+            </div>
+		</section>
+		
+    <!-- footer pie de pagina-->
+    <br>
+    <footer>
+        <!-- COLLAGE DE FOTOS CARGADAS CON STATIC -->
+        <div class="collage">	
+            <div class="caja">
+                <img src="{% static 'images/dos.jpg'%}" alt="Nueve">
+                <img src="{% static 'images/siete.jpg'%}" alt="Nueve">
+                <img src="{% static 'images/ocho.jpg'%}" alt="Nueve">
+            </div>
+            <div class="caja largo">
+                <img src="{% static 'images/cuatro.jpg'%}" alt="Nueve"style="height:62%">
+                <img src="{% static 'images/cinco.jpg'%}" alt="Nueve">
+            </div>
+            <div class="caja">
+                <img src="{% static 'images/tres.jpg'%}" alt="Nueve" >
+                <img src="{% static 'images/seis.jpg'%}" alt="Nueve" >
+                <img src="{% static 'images/uno.jpg'%}" alt="Nueve">
+                
+            </div>
+            
+            
+        </div>  
+        
+    <footer>
+        <br>
+        <br>
+     
+
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends "maqueta.html" %} <!-- EXTIENDE LOS DATOS DE LA MAQUETA PARA MOSTRAR SU HTML -->
+{% load staticfiles %}
+{% block Lista %}
+<h1 >Lista de Mascotas</h1>
+{% if mascota %}
+<table class = "lista">
+    <tr>
+         <td> Foto Mascota</td><td> Nombre</td><td> Raza  </td> <td> Descripcion </td> <td> Estado </td> 
+    </tr>
+    {% for m in mascota %}
+    <tr>
+         <td> <img src="/media/{{m.fotoMascota}}" width="50%" alt=""> </td><td>{{m.nombreMascota}}</td> <td>{{m.razaMascota}}</td> <td>{{m.descripcionMascota}}</td> <td>{{m.estado}}</td>                    
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h2>No hay Mascotas registradas</h2>
+{% endif %}
+
+<!-- PAGINATOR PARA LA PAGINA  -->
+
+<div class="pagination">
+ 
+    {% if mascota.has_previous %}
+    <button>
+        <a href="?page=1">First</a>
+    </button>
+    <button>
+      <a href="?page={{ mascota.previous_page_number }}">Previous</a>
+    </button>
+
+    {% endif %}
+
+    {% for num in mascota.paginator.page_range %}
+
+      {% if mascota.number == num %}
+      <button>
+        <span>{{ num }}</span>
+    </button>
+
+      {% elif num > mascota.number|add:'-3' and num < mascota.number|add:'3' %}
+      <button>
+        <a href="?page={{ num }}">{{ num }}</a>
+      </button>
+
+      {% endif %}
+
+    {% endfor %}
+
+    {% if mascota.has_next %}
+    <button>
+      <a href="?page={{ mascota.next_page_number }}">Next</a>
+    </button>
+    <button>
+     <a href="?page={{ mascota.paginator.num_pages }}">Last</a>
+    </button>
+
+    {% endif %}
+
+  </div>
+{% endblock %}
